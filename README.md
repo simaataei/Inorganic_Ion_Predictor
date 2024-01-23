@@ -18,7 +18,7 @@ Inorganic ion predictor classifies the transmembrane transport proteins based on
 The primary structure of protein sequences is encoded to a vector using a finetuned Prot-BERT model. This model is followed by a FNN and a softmax layer to apply classification purposes. 
 
 
-#Usage:
+## Usage:
 The list of required Python packages is included in the file "requirements.txt". To install these packages, run the following command:
 
 ```pip install -r requirements.txt```
