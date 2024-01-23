@@ -30,5 +30,7 @@ The program could be run using the following command:
 For example:
 
   ```python run.py Datasets/test.fasta out.txt```
+
+  
 The file "test.fasta" is the input file containing protein sequences in fasta format and "out.txt" contains the id of the test sequence followed by the prediction.
 
