@@ -21,14 +21,14 @@ The primary structure of protein sequences is encoded to a vector using a finetu
 ## Usage:
 The list of required Python packages is included in the file "requirements.txt". To install these packages, run the following command:
 
-```pip install -r requirements.txt```
+  ```pip install -r requirements.txt```
 
 The program could be run using the following command:
 
-```python run.py [input_fasta_file] [output_file]```
+  ```python run.py [input_fasta_file] [output_file]```
 
 For example:
 
-```python run.py Datasets/test.fasta out.txt```
+  ```python run.py Datasets/test.fasta out.txt```
 The file "test.fasta" is the input file containing protein sequences in fasta format and "out.txt" contains the id of the test sequence followed by the prediction.
 
