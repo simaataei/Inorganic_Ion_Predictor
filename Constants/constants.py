@@ -4,4 +4,4 @@ file_test = '../Dataset/inorganic_uniprot_ident100_t10_test.csv'
 file_val = '../Dataset/inorganic_uniprot_ident100_t10_validation.csv'
 
 pth_results = './Results/'
-pth_model = '../Models/best_model_other.pth'
+pth_model = '../Models/inorganic_ion_predictor.bin'

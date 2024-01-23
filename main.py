@@ -1,6 +1,4 @@
 from Train.hyper_parameter_search import optimize_hyperparameters
-from Constants.constants import file_train, file_test, file_val
-from Classes.Data import IonDataset
 
 def main():
 

@@ -22,7 +22,8 @@ class IonDataset(Dataset):
             data = f.readlines()
             for d in data:
                 d = d.split(',')
-                x_data.append(d[0])
+                seq = ''.join(['X' if char in {'U', 'O', 'B', 'Z'} else char for char in d[0]])
+                x_data.append(seq)
                 y_data.append(int(d[1].strip('\n')))
 
         return x_data, y_data

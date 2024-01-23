@@ -1,12 +1,13 @@
 import torch
-import torch.optim as optim
 import torch.nn as nn
 import torch.nn.functional as F
-
 from tqdm import tqdm
 from transformers import AutoConfig, AutoModel, AutoTokenizer
 
+
+
 class InorganicIonClassifier(nn.Module):
+
     def __init__(self, num_classes):
         super().__init__()
         self.config = AutoConfig.from_pretrained("Rostlab/prot_bert_bfd")
@@ -55,7 +56,15 @@ class InorganicIonClassifier(nn.Module):
         for i in range(len(X)):
             with torch.no_grad():
                 sample = X[i]
-                pred = self(sample).float().to(device)  # Use .to(device) instead of .cuda()
+                pred = self(sample).float().to(device)
                 predictions.append(pred.argmax().cpu().detach().numpy())
                 targets.append(y[i])
         return targets, predictions
+
+    def test(self, x):
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.eval()
+        with torch.no_grad():
+            pred = self(x).float().to(device)
+            prediction = pred.argmax().cpu().detach().numpy()
+        return prediction

@@ -3,6 +3,7 @@ import torch.optim as optim
 import torch.nn as nn
 from Classes.model import InorganicIonClassifier
 import numpy as np
+import json
 import optuna
 from sklearn.metrics import matthews_corrcoef
 from sklearn.utils.class_weight import compute_class_weight
@@ -54,7 +55,16 @@ def objective(trial):
         # Save the best model state dictionary
         if mcc > best_mcc:
             best_mcc = mcc
-            torch.save(model.state_dict(), './Models/best_model_other.pth')
+            # Access the model's configuration
+            config = model.config
+
+            # Save the config in a file
+            config_dict = config.to_dict()
+            with open("config.json", "w") as config_file:
+                json.dump(config_dict, config_file, indent=2)
+
+            # Save the model
+            torch.save(model.state_dict(), './Models/inorganic_ion_predictor.pth')
 
     return best_mcc
 
